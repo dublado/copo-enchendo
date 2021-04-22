@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta chatset="UTF-8" />
+		<title>O copo ta enchendo</title>
+		
+		<style>
+            body {background-color: black;overflow: hidden;}
+			.wrapper {
+				width: 420px;
+                height: 3000px;
+			}
+			
+			.progress-bar {
+                /*transform: rotate(180deg);*/
+				width: 100%;
+                height: 480px;
+				border-radius: 3px;
+				box-shadow: inset 0 1px 3px rgba(0, 0, 0, .2);
+                background:linear-gradient(to bottom, rgb(42, 159, 255) 50%, transparent 0%);
+                background-size:100% 200%;
+                background-position:0 -20%;
+                animation: Animation 10s ease infinite;
+
+			}
+            
+            .progress-bar-fill {
+                background:url('bgblack-cup-water.png');
+                width:100%;
+				height: 480px;
+                display:block;
+				border-radius: 3px;
+			}
+sudo add-apt-repository
+            @keyframes Animation {
+                to{background-position:0 -100%}
+            }
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="progress-bar">
+				<span class="progress-bar-fill"></span>
+			</div>
+		</div>
+		<script>
+            function hourtoseconds(h,s){
+            var hh=h;
+            var intervalo=7200;
+console.log(h,s);
+switch (hh){
+    case 1:case 2:h=1;break;
+    case 3:case 4:case 5:h=3;intervalo=10800;break;
+    case 6:case 7:h=6;break;
+    case 8:case 9:h=8;break;
+    case 10:case 11:case 12:h=10;intervalo=10800;break;
+    case 13:case 14:case 15:h=13;intervalo=10800;break;
+    case 16:case 17:case 18:h=16;intervalo=10800;break;
+    case 19:case 20:h=19;break;
+    case 21:case 22:h=21;break;
+    case 23:case 00:h=23;break;
+        
+    
+}
+console.log(hh);
+    console.log(h);
+        var valor=( (((hh-h)*(60*60))+(s*60)) );
+        var porcentagem=(((valor))*100)/intervalo;
+        console.log(porcentagem+"  bruta");
+        if(porcentagem<20){porcentagem=20;}
+        console.log(( intervalo-valor )+"s");
+        console.log(valor+"s");
+        console.log(porcentagem);
+        document.querySelector("body > div > div").style.animationDuration=( intervalo-valor )+"s";
+        //document.querySelector("body > div > div").style.animationDuration="5s";
+        console.log(porcentagem);
+        document.querySelector("body > div > div").style.backgroundPositionY="-"+porcentagem+"%";
+
+}
+
+datax=new Date()
+hourtoseconds(datax.getHours(),datax.getMinutes());
+//hourtoseconds(5,40);
+//document.querySelector("body > div > div").addEventListener("webkitAnimationEnd",function(){console.log("encerrou animacao")})
+document.querySelector("body > div > div").addEventListener("animationiteration",function(){
+    //console.log("interacao da animacao animacao");
+    document.querySelector("body > div > div").style.backgroundPositionY="-20%";
+    //console.log(document.querySelector("body > div > div").style.backgroundPositionY);
+})
+
+        </script>
+        
+        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTjuPC6cAnOI6De0KZD2wq8klNyv8VSfuo5rF2KwtcKYB1iCVlKGgi9ge5y7zBbij-jV-eeu8l8JE3L/pubhtml?gid=1483150936&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+    
+    </body>
+</html>
